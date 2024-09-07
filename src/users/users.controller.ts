@@ -6,10 +6,8 @@ import {
   NotFoundException,
   Param,
   Patch,
-  Post,
   Query,
 } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersService } from './users.service';
 
@@ -35,10 +33,10 @@ export class UsersController {
   //   return this.usersService.findAll();
   // }
 
-  @Post()
-  createUser(@Body() body: CreateUserDto) {
-    return this.usersService.create(body.username, body.email, body.password);
-  }
+  // @Post()
+  // createUser(@Body() body: CreateUserDto) {
+  //   return this.usersService.create(body.username, body.email, body.password);
+  // }
 
   @Delete('/:id')
   removeUser(@Param('id') id: string) {

@@ -1,4 +1,7 @@
 import { Controller } from '@nestjs/common';
+import { OptionsService } from './options.service';
 
 @Controller('options')
-export class OptionsController {}
+export class OptionsController {
+  constructor(private optionsService: OptionsService) {}
+}
