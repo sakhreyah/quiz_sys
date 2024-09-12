@@ -13,5 +13,5 @@ export class CreateUserDto extends BaseDto {
   password: string;
 
   @IsEnum(RoleEnum)
-  role: RoleEnum = RoleEnum.STUDENT;
+  role: RoleEnum;
 }
