@@ -13,11 +13,11 @@ export abstract class Base {
   created_at: Date;
 
   @Column()
-  created_by: string = 'test';
+  created_by: string = 'system';
 
   @UpdateDateColumn()
   updated_at: Date;
 
   @Column()
-  updated_by: string = 'test';
+  updated_by: string = 'system';
 }
