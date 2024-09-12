@@ -13,17 +13,13 @@ export class AuthService {
     private usersService: UsersService,
     private jwtService: JwtService,
   ) {}
-  async signup(username: string, email: string, password: string) {
-    const users = await this.usersService.find(email);
+  async signup(body, user_id: string) {
+    const users = await this.usersService.find(body.email);
     if (users.length) {
       throw new BadRequestException('email in use');
     }
 
-    const salt = await bcrypt.genSalt();
-
-    const hash = await bcrypt.hash(password, salt);
-
-    const user = await this.usersService.create(username, email, hash);
+    const user = await this.usersService.create(body, user_id);
 
     return user;
   }
@@ -44,7 +40,7 @@ export class AuthService {
       throw new BadRequestException('invalid credentials');
     }
 
-    const payload = { sub: user.id, username: user.username };
+    const payload = { id: user.id, username: user.username, role: user.role };
     return {
       access_token: await this.jwtService.signAsync(payload),
     };
