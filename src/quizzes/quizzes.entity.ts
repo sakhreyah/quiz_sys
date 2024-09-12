@@ -4,7 +4,7 @@ import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
 import { Response } from '../responses/responses.entity';
 import { Score } from '../scores/scores.entity';
 
-@Entity()
+@Entity('quizzes')
 export class Quiz extends Base {
   @Column()
   title: string;

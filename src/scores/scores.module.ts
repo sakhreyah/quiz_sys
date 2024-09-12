@@ -3,9 +3,17 @@ import { ScoresController } from './scores.controller';
 import { ScoresService } from './scores.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Score } from './scores.entity';
+import { UsersModule } from 'src/users/users.module';
+import { QuizzesModule } from 'src/quizzes/quizzes.module';
+import { ResponsesModule } from 'src/responses/responses.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Score])],
+  imports: [
+    UsersModule,
+    QuizzesModule,
+    ResponsesModule,
+    TypeOrmModule.forFeature([Score]),
+  ],
   controllers: [ScoresController],
   providers: [ScoresService],
 })
