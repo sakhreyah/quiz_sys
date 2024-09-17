@@ -1,12 +1,4 @@
-import { IsOptional, IsString } from 'class-validator';
-import { BaseDto } from 'src/base/base.dto';
+import { PartialType } from '@nestjs/swagger';
+import { CreateQuizDto } from './create-quiz.dto';
 
-export class UpdateQuizDto extends BaseDto {
-  @IsString()
-  @IsOptional()
-  title: string;
-
-  @IsString()
-  @IsOptional()
-  description: string;
-}
+export class UpdateQuizDto extends PartialType(CreateQuizDto) {}

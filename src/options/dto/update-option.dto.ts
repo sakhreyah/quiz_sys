@@ -1,16 +1,4 @@
-import { IsBoolean, IsOptional, IsString } from 'class-validator';
-import { BaseDto } from 'src/base/base.dto';
+import { PartialType } from '@nestjs/swagger';
+import { CreateOptionDto } from './create-option.dto';
 
-export class UpdateOptionDto extends BaseDto {
-  @IsString()
-  @IsOptional()
-  question_id: string;
-
-  @IsString()
-  @IsOptional()
-  option_text: string;
-
-  @IsBoolean()
-  @IsOptional()
-  is_correct: boolean;
-}
+export class UpdateOptionDto extends PartialType(CreateOptionDto) {}

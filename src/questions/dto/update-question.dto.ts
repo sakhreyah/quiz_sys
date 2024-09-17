@@ -1,13 +1,4 @@
-import { BaseDto } from 'src/base/base.dto';
-import { QuestionTypeEnum } from './question.enum';
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { PartialType } from '@nestjs/swagger';
+import { CreateQuestionDto } from './create-question.dto';
 
-export class UpdateQuestionDto extends BaseDto {
-  @IsString()
-  @IsOptional()
-  question_text: string;
-
-  @IsOptional()
-  @IsEnum(QuestionTypeEnum)
-  question_type: QuestionTypeEnum;
-}
+export class UpdateQuestionDto extends PartialType(CreateQuestionDto) {}
